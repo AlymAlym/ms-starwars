@@ -1,0 +1,15 @@
+image: alpine:latest
+
+build:
+  stage: build
+  script:
+    - npm ci
+    - npm run prettier
+    - npm run unit-tests
+    - npm run integration-tests
+  only:
+    - merge_request
+    - master
+
+
+
